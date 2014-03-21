@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		049186F118DA9CEF008F42CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049186F018DA9CEF008F42CC /* Foundation.framework */; };
+		049186F318DA9CEF008F42CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049186F218DA9CEF008F42CC /* CoreGraphics.framework */; };
+		049186F518DA9CEF008F42CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049186F418DA9CEF008F42CC /* UIKit.framework */; };
+		049186FB18DA9CEF008F42CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 049186F918DA9CEF008F42CC /* InfoPlist.strings */; };
+		049186FD18DA9CEF008F42CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 049186FC18DA9CEF008F42CC /* main.m */; };
+		0491870118DA9CEF008F42CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491870018DA9CEF008F42CC /* AppDelegate.m */; };
+		0491870318DA9CEF008F42CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0491870218DA9CEF008F42CC /* Images.xcassets */; };
+		0491870A18DA9CEF008F42CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0491870918DA9CEF008F42CC /* XCTest.framework */; };
+		0491870B18DA9CEF008F42CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049186F018DA9CEF008F42CC /* Foundation.framework */; };
+		0491870C18DA9CEF008F42CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049186F418DA9CEF008F42CC /* UIKit.framework */; };
+		0491871418DA9CF0008F42CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0491871218DA9CF0008F42CC /* InfoPlist.strings */; };
+		0491871618DA9CF0008F42CC /* NeetboyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491871518DA9CF0008F42CC /* NeetboyTests.m */; };
+		0491872218DA9EC0008F42CC /* Demo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491872118DA9EC0008F42CC /* Demo.xib */; };
+		04A4785418DBD685004F3448 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784B18DBD685004F3448 /* BaseViewController.m */; };
+		04A4785518DBD685004F3448 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784D18DBD685004F3448 /* FavouriteViewController.m */; };
+		04A4785618DBD685004F3448 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784F18DBD685004F3448 /* HomeViewController.m */; };
+		04A4785718DBD685004F3448 /* RecommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4785118DBD685004F3448 /* RecommandViewController.m */; };
+		04A4785818DBD685004F3448 /* SpecialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4785318DBD685004F3448 /* SpecialViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0491870D18DA9CEF008F42CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 049186E518DA9CEF008F42CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 049186EC18DA9CEF008F42CC;
+			remoteInfo = Neetboy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		049186ED18DA9CEF008F42CC /* Neetboy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neetboy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		049186F018DA9CEF008F42CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		049186F218DA9CEF008F42CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		049186F418DA9CEF008F42CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		049186F818DA9CEF008F42CC /* Neetboy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Neetboy-Info.plist"; sourceTree = "<group>"; };
+		049186FA18DA9CEF008F42CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		049186FC18DA9CEF008F42CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		049186FE18DA9CEF008F42CC /* Neetboy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Neetboy-Prefix.pch"; sourceTree = "<group>"; };
+		049186FF18DA9CEF008F42CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0491870018DA9CEF008F42CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0491870218DA9CEF008F42CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0491870818DA9CEF008F42CC /* NeetboyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeetboyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0491870918DA9CEF008F42CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0491871118DA9CEF008F42CC /* NeetboyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NeetboyTests-Info.plist"; sourceTree = "<group>"; };
+		0491871318DA9CF0008F42CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0491871518DA9CF0008F42CC /* NeetboyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeetboyTests.m; sourceTree = "<group>"; };
+		0491872118DA9EC0008F42CC /* Demo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Demo.xib; sourceTree = "<group>"; };
+		04A4784A18DBD685004F3448 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		04A4784B18DBD685004F3448 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		04A4784C18DBD685004F3448 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
+		04A4784D18DBD685004F3448 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
+		04A4784E18DBD685004F3448 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		04A4784F18DBD685004F3448 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		04A4785018DBD685004F3448 /* RecommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommandViewController.h; sourceTree = "<group>"; };
+		04A4785118DBD685004F3448 /* RecommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommandViewController.m; sourceTree = "<group>"; };
+		04A4785218DBD685004F3448 /* SpecialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialViewController.h; sourceTree = "<group>"; };
+		04A4785318DBD685004F3448 /* SpecialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		049186EA18DA9CEF008F42CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049186F318DA9CEF008F42CC /* CoreGraphics.framework in Frameworks */,
+				049186F518DA9CEF008F42CC /* UIKit.framework in Frameworks */,
+				049186F118DA9CEF008F42CC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0491870518DA9CEF008F42CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0491870A18DA9CEF008F42CC /* XCTest.framework in Frameworks */,
+				0491870C18DA9CEF008F42CC /* UIKit.framework in Frameworks */,
+				0491870B18DA9CEF008F42CC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		049186E418DA9CEF008F42CC = {
+			isa = PBXGroup;
+			children = (
+				049186F618DA9CEF008F42CC /* Neetboy */,
+				0491870F18DA9CEF008F42CC /* NeetboyTests */,
+				049186EF18DA9CEF008F42CC /* Frameworks */,
+				049186EE18DA9CEF008F42CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		049186EE18DA9CEF008F42CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				049186ED18DA9CEF008F42CC /* Neetboy.app */,
+				0491870818DA9CEF008F42CC /* NeetboyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		049186EF18DA9CEF008F42CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				049186F018DA9CEF008F42CC /* Foundation.framework */,
+				049186F218DA9CEF008F42CC /* CoreGraphics.framework */,
+				049186F418DA9CEF008F42CC /* UIKit.framework */,
+				0491870918DA9CEF008F42CC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		049186F618DA9CEF008F42CC /* Neetboy */ = {
+			isa = PBXGroup;
+			children = (
+				04A4785918DBD6B2004F3448 /* Model */,
+				04A4785A18DBD6C0004F3448 /* View */,
+				04A4784918DBD685004F3448 /* Controller */,
+				049186FF18DA9CEF008F42CC /* AppDelegate.h */,
+				0491870018DA9CEF008F42CC /* AppDelegate.m */,
+				0491872118DA9EC0008F42CC /* Demo.xib */,
+				0491870218DA9CEF008F42CC /* Images.xcassets */,
+				049186F718DA9CEF008F42CC /* Supporting Files */,
+			);
+			path = Neetboy;
+			sourceTree = "<group>";
+		};
+		049186F718DA9CEF008F42CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				049186F818DA9CEF008F42CC /* Neetboy-Info.plist */,
+				049186F918DA9CEF008F42CC /* InfoPlist.strings */,
+				049186FC18DA9CEF008F42CC /* main.m */,
+				049186FE18DA9CEF008F42CC /* Neetboy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0491870F18DA9CEF008F42CC /* NeetboyTests */ = {
+			isa = PBXGroup;
+			children = (
+				0491871518DA9CF0008F42CC /* NeetboyTests.m */,
+				0491871018DA9CEF008F42CC /* Supporting Files */,
+			);
+			path = NeetboyTests;
+			sourceTree = "<group>";
+		};
+		0491871018DA9CEF008F42CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0491871118DA9CEF008F42CC /* NeetboyTests-Info.plist */,
+				0491871218DA9CF0008F42CC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04A4784918DBD685004F3448 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04A4784A18DBD685004F3448 /* BaseViewController.h */,
+				04A4784B18DBD685004F3448 /* BaseViewController.m */,
+				04A4784C18DBD685004F3448 /* FavouriteViewController.h */,
+				04A4784D18DBD685004F3448 /* FavouriteViewController.m */,
+				04A4784E18DBD685004F3448 /* HomeViewController.h */,
+				04A4784F18DBD685004F3448 /* HomeViewController.m */,
+				04A4785018DBD685004F3448 /* RecommandViewController.h */,
+				04A4785118DBD685004F3448 /* RecommandViewController.m */,
+				04A4785218DBD685004F3448 /* SpecialViewController.h */,
+				04A4785318DBD685004F3448 /* SpecialViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04A4785918DBD6B2004F3448 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04A4785A18DBD6C0004F3448 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		049186EC18DA9CEF008F42CC /* Neetboy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0491871918DA9CF0008F42CC /* Build configuration list for PBXNativeTarget "Neetboy" */;
+			buildPhases = (
+				049186E918DA9CEF008F42CC /* Sources */,
+				049186EA18DA9CEF008F42CC /* Frameworks */,
+				049186EB18DA9CEF008F42CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Neetboy;
+			productName = Neetboy;
+			productReference = 049186ED18DA9CEF008F42CC /* Neetboy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0491870718DA9CEF008F42CC /* NeetboyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0491871C18DA9CF0008F42CC /* Build configuration list for PBXNativeTarget "NeetboyTests" */;
+			buildPhases = (
+				0491870418DA9CEF008F42CC /* Sources */,
+				0491870518DA9CEF008F42CC /* Frameworks */,
+				0491870618DA9CEF008F42CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0491870E18DA9CEF008F42CC /* PBXTargetDependency */,
+			);
+			name = NeetboyTests;
+			productName = NeetboyTests;
+			productReference = 0491870818DA9CEF008F42CC /* NeetboyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		049186E518DA9CEF008F42CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = lide;
+				TargetAttributes = {
+					0491870718DA9CEF008F42CC = {
+						TestTargetID = 049186EC18DA9CEF008F42CC;
+					};
+				};
+			};
+			buildConfigurationList = 049186E818DA9CEF008F42CC /* Build configuration list for PBXProject "Neetboy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 049186E418DA9CEF008F42CC;
+			productRefGroup = 049186EE18DA9CEF008F42CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				049186EC18DA9CEF008F42CC /* Neetboy */,
+				0491870718DA9CEF008F42CC /* NeetboyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		049186EB18DA9CEF008F42CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049186FB18DA9CEF008F42CC /* InfoPlist.strings in Resources */,
+				0491872218DA9EC0008F42CC /* Demo.xib in Resources */,
+				0491870318DA9CEF008F42CC /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0491870618DA9CEF008F42CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0491871418DA9CF0008F42CC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		049186E918DA9CEF008F42CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A4785518DBD685004F3448 /* FavouriteViewController.m in Sources */,
+				0491870118DA9CEF008F42CC /* AppDelegate.m in Sources */,
+				04A4785418DBD685004F3448 /* BaseViewController.m in Sources */,
+				04A4785618DBD685004F3448 /* HomeViewController.m in Sources */,
+				049186FD18DA9CEF008F42CC /* main.m in Sources */,
+				04A4785818DBD685004F3448 /* SpecialViewController.m in Sources */,
+				04A4785718DBD685004F3448 /* RecommandViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0491870418DA9CEF008F42CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0491871618DA9CF0008F42CC /* NeetboyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0491870E18DA9CEF008F42CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 049186EC18DA9CEF008F42CC /* Neetboy */;
+			targetProxy = 0491870D18DA9CEF008F42CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		049186F918DA9CEF008F42CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				049186FA18DA9CEF008F42CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0491871218DA9CF0008F42CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0491871318DA9CF0008F42CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0491871718DA9CF0008F42CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0491871818DA9CF0008F42CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0491871A18DA9CF0008F42CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neetboy/Neetboy-Prefix.pch";
+				INFOPLIST_FILE = "Neetboy/Neetboy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0491871B18DA9CF0008F42CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neetboy/Neetboy-Prefix.pch";
+				INFOPLIST_FILE = "Neetboy/Neetboy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0491871D18DA9CF0008F42CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Neetboy.app/Neetboy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neetboy/Neetboy-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NeetboyTests/NeetboyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0491871E18DA9CF0008F42CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Neetboy.app/Neetboy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neetboy/Neetboy-Prefix.pch";
+				INFOPLIST_FILE = "NeetboyTests/NeetboyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		049186E818DA9CEF008F42CC /* Build configuration list for PBXProject "Neetboy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0491871718DA9CF0008F42CC /* Debug */,
+				0491871818DA9CF0008F42CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0491871918DA9CF0008F42CC /* Build configuration list for PBXNativeTarget "Neetboy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0491871A18DA9CF0008F42CC /* Debug */,
+				0491871B18DA9CF0008F42CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0491871C18DA9CF0008F42CC /* Build configuration list for PBXNativeTarget "NeetboyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0491871D18DA9CF0008F42CC /* Debug */,
+				0491871E18DA9CF0008F42CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 049186E518DA9CEF008F42CC /* Project object */;
+}
