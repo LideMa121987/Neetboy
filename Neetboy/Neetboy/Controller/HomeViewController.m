@@ -14,6 +14,25 @@
 
 @implementation HomeViewController
 
+#pragma mark - private
+
+- (void)clickRecommandButton:(id)sender
+{
+    [self.view addSubview:_recommandVC.view];
+}
+
+- (void)clickSpecialButton:(id)sender
+{
+    [self.view addSubview:_specialVC.view];
+}
+
+- (void)clickFavouriteButton:(id)sender
+{
+    [self.view addSubview:_favouriteVC.view];
+}
+
+#pragma mark - super
+
 - (id)init
 {
     self = [super init];
@@ -55,31 +74,44 @@
     [self.view addSubview:_footView];
     
     _recommandButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _recommandButton.frame = CGRectMake(0, 0, 107, 49);
+    _recommandButton.frame = CGRectMake(2, 2, 104, 45);
     _recommandButton.layer.borderWidth = 1.0;
     _recommandButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
     _recommandButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [_recommandButton setTitle:@"Recommand" forState:UIControlStateNormal];
     [_recommandButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_recommandButton addTarget:self action:@selector(clickRecommandButton:) forControlEvents:UIControlEventTouchUpInside];
     [_footView addSubview:_recommandButton];
     
     _specialButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _specialButton.frame = CGRectMake(107, 0, 106, 49);
+    _specialButton.frame = CGRectMake(108, 2, 104, 45);
     _specialButton.layer.borderWidth = 1.0;
     _specialButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
     _specialButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [_specialButton setTitle:@"Special" forState:UIControlStateNormal];
     [_specialButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_specialButton addTarget:self action:@selector(clickSpecialButton:) forControlEvents:UIControlEventTouchUpInside];
     [_footView addSubview:_specialButton];
     
     _favouriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _favouriteButton.frame = CGRectMake(213, 0, 107, 49);
+    _favouriteButton.frame = CGRectMake(214, 2, 104, 45);
     _favouriteButton.layer.borderWidth = 1.0;
     _favouriteButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
     _favouriteButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [_favouriteButton setTitle:@"Favourite" forState:UIControlStateNormal];
     [_favouriteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_favouriteButton addTarget:self action:@selector(clickFavouriteButton:) forControlEvents:UIControlEventTouchUpInside];
     [_footView addSubview:_favouriteButton];
+    
+    _recommandVC = [[RecommandViewController alloc] init];
+    _recommandVC.homeViewController = self;
+    [self.view addSubview:_recommandVC.view];
+    
+    _specialVC = [[SpecialViewController alloc] init];
+    _specialVC.homeViewController = self;
+    
+    _favouriteVC = [[FavouriteViewController alloc] init];
+    _favouriteVC.homeViewController = self;
 }
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

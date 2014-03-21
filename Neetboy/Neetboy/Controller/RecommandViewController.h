@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
+#import "SMGridView.h"
 
-@interface RecommandViewController : UIViewController
+@interface RecommandViewController : BaseViewController <SMGridViewDataSource, SMGridViewDelegate>
+{
+    __unsafe_unretained UIViewController        *_homeViewController;
+    
+    SMGridView      *_gridView;
+    NSMutableArray  *_itemArray;
+}
+
+@property (assign, nonatomic) UIViewController *homeViewController;
 
 @end

@@ -25,6 +25,9 @@
 		04A4785618DBD685004F3448 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784F18DBD685004F3448 /* HomeViewController.m */; };
 		04A4785718DBD685004F3448 /* RecommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4785118DBD685004F3448 /* RecommandViewController.m */; };
 		04A4785818DBD685004F3448 /* SpecialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4785318DBD685004F3448 /* SpecialViewController.m */; };
+		04A4785D18DBDFA5004F3448 /* SMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4785C18DBDFA5004F3448 /* SMGridView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		04A4786018DC1E38004F3448 /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4785F18DC1E38004F3448 /* GridView.m */; };
+		04A4786318DC240C004F3448 /* SpecialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4786218DC240C004F3448 /* SpecialTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,12 @@
 		04A4785118DBD685004F3448 /* RecommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommandViewController.m; sourceTree = "<group>"; };
 		04A4785218DBD685004F3448 /* SpecialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialViewController.h; sourceTree = "<group>"; };
 		04A4785318DBD685004F3448 /* SpecialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialViewController.m; sourceTree = "<group>"; };
+		04A4785B18DBDFA5004F3448 /* SMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMGridView.h; sourceTree = "<group>"; };
+		04A4785C18DBDFA5004F3448 /* SMGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMGridView.m; sourceTree = "<group>"; };
+		04A4785E18DC1E38004F3448 /* GridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridView.h; sourceTree = "<group>"; };
+		04A4785F18DC1E38004F3448 /* GridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridView.m; sourceTree = "<group>"; };
+		04A4786118DC240C004F3448 /* SpecialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTableViewCell.h; sourceTree = "<group>"; };
+		04A4786218DC240C004F3448 /* SpecialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,14 +179,14 @@
 			children = (
 				04A4784A18DBD685004F3448 /* BaseViewController.h */,
 				04A4784B18DBD685004F3448 /* BaseViewController.m */,
-				04A4784C18DBD685004F3448 /* FavouriteViewController.h */,
-				04A4784D18DBD685004F3448 /* FavouriteViewController.m */,
 				04A4784E18DBD685004F3448 /* HomeViewController.h */,
 				04A4784F18DBD685004F3448 /* HomeViewController.m */,
 				04A4785018DBD685004F3448 /* RecommandViewController.h */,
 				04A4785118DBD685004F3448 /* RecommandViewController.m */,
 				04A4785218DBD685004F3448 /* SpecialViewController.h */,
 				04A4785318DBD685004F3448 /* SpecialViewController.m */,
+				04A4784C18DBD685004F3448 /* FavouriteViewController.h */,
+				04A4784D18DBD685004F3448 /* FavouriteViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,6 +201,12 @@
 		04A4785A18DBD6C0004F3448 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04A4785B18DBDFA5004F3448 /* SMGridView.h */,
+				04A4785C18DBDFA5004F3448 /* SMGridView.m */,
+				04A4785E18DC1E38004F3448 /* GridView.h */,
+				04A4785F18DC1E38004F3448 /* GridView.m */,
+				04A4786118DC240C004F3448 /* SpecialTableViewCell.h */,
+				04A4786218DC240C004F3448 /* SpecialTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,9 +307,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A4785D18DBDFA5004F3448 /* SMGridView.m in Sources */,
 				04A4785518DBD685004F3448 /* FavouriteViewController.m in Sources */,
 				0491870118DA9CEF008F42CC /* AppDelegate.m in Sources */,
+				04A4786318DC240C004F3448 /* SpecialTableViewCell.m in Sources */,
 				04A4785418DBD685004F3448 /* BaseViewController.m in Sources */,
+				04A4786018DC1E38004F3448 /* GridView.m in Sources */,
 				04A4785618DBD685004F3448 /* HomeViewController.m in Sources */,
 				049186FD18DA9CEF008F42CC /* main.m in Sources */,
 				04A4785818DBD685004F3448 /* SpecialViewController.m in Sources */,

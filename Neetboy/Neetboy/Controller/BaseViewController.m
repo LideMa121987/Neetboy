@@ -14,14 +14,49 @@
 
 @implementation BaseViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    self = [super init];
+    if(self != nil)
+    {
+    
     }
+    
     return self;
 }
+
+- (void)loadView
+{
+    [super loadView];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    _adjustView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 64 - self.view.frame.origin.y)];
+    _adjustView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_adjustView];
+    
+    _headView = [[UIView alloc] initWithFrame:CGRectMake(0, _adjustView.frame.size.height - 44, 320, 44)];
+    _headView.backgroundColor = [UIColor whiteColor];
+    _headView.layer.borderWidth = 1.0;
+    _headView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    [_adjustView addSubview:_headView];
+    
+    _titleLabel = [[UILabel alloc] initWithFrame:_headView.bounds];
+    _titleLabel.backgroundColor = [UIColor clearColor];
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.textColor = [UIColor blackColor];
+    _titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [_headView addSubview:_titleLabel];
+}
+
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad
 {

@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecommandViewController.h"
+#import "SpecialViewController.h"
+#import "FavouriteViewController.h"
 
 @interface HomeViewController : UIViewController //<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 {
@@ -20,6 +23,10 @@
     UIButton        *_recommandButton;
     UIButton        *_specialButton;
     UIButton        *_favouriteButton;
+    
+    RecommandViewController     *_recommandVC;
+    SpecialViewController       *_specialVC;
+    FavouriteViewController     *_favouriteVC;
 }
 
 @end

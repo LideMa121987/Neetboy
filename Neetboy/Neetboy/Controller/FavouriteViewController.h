@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface FavouriteViewController : UIViewController
+@interface FavouriteViewController : BaseViewController
+{
+    __unsafe_unretained UIViewController        *_homeViewController;
+}
+
+@property (assign, nonatomic) UIViewController *homeViewController;
 
 @end
