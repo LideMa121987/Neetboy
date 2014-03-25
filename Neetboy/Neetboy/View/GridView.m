@@ -10,6 +10,8 @@
 
 @implementation GridView
 
+@synthesize delegate = _delegate;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -27,6 +29,9 @@
         _view2.layer.borderWidth = 1.0;
         _view2.layer.borderColor = [UIColor blackColor].CGColor;
         [self addSubview:_view2];
+        
+        UITapGestureRecognizer *oneFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneFingerTap:)];
+        [self addGestureRecognizer:oneFingerTap];
     }
     return self;
 }
@@ -47,5 +52,18 @@
     // Drawing code
 }
 */
+
+#pragma mark - UIGestureRecognizer
+
+- (void)oneFingerTap:(UITapGestureRecognizer *)gestureRecognizer
+{
+    if(gestureRecognizer.state == UIGestureRecognizerStateEnded)
+    {
+        if(_delegate && [_delegate respondsToSelector:@selector(gridViewDidTap:)])
+        {
+            [_delegate gridViewDidTap:self];
+        }
+    }
+}
 
 @end

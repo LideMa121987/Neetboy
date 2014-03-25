@@ -8,6 +8,7 @@
 
 #import "SpecialViewController.h"
 #import "SpecialTableViewCell.h"
+#import "AudioViewController.h"
 
 @interface SpecialViewController ()
 
@@ -38,6 +39,7 @@
     [super loadView];
     
     _titleLabel.text = @"Special";
+    _backButton.hidden = YES;
     
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - 49);
     
@@ -50,7 +52,6 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 2.5)];
     headerView.backgroundColor = [UIColor clearColor];
     _tableView.tableHeaderView = headerView;
-    
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 2.5)];
     footerView.backgroundColor = [UIColor clearColor];
@@ -114,6 +115,16 @@
     cell.frame = CGRectMake(0, 0, size.width, size.height);
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AudioViewController *audioVC = [[AudioViewController alloc] init];
+    [self.homeViewController.navigationController pushViewController:audioVC animated:YES];
+    
+    return nil;
 }
 
 @end

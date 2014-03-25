@@ -28,6 +28,8 @@
 		04A4785D18DBDFA5004F3448 /* SMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4785C18DBDFA5004F3448 /* SMGridView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		04A4786018DC1E38004F3448 /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4785F18DC1E38004F3448 /* GridView.m */; };
 		04A4786318DC240C004F3448 /* SpecialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4786218DC240C004F3448 /* SpecialTableViewCell.m */; };
+		04A4786918DC3758004F3448 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4786818DC3758004F3448 /* DetailViewController.m */; };
+		04D4EB6818E1646E0052F14A /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D4EB6718E1646E0052F14A /* AudioViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,10 @@
 		04A4785F18DC1E38004F3448 /* GridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridView.m; sourceTree = "<group>"; };
 		04A4786118DC240C004F3448 /* SpecialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTableViewCell.h; sourceTree = "<group>"; };
 		04A4786218DC240C004F3448 /* SpecialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTableViewCell.m; sourceTree = "<group>"; };
+		04A4786718DC3758004F3448 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		04A4786818DC3758004F3448 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		04D4EB6618E1646E0052F14A /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioViewController.h; sourceTree = "<group>"; };
+		04D4EB6718E1646E0052F14A /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +193,10 @@
 				04A4785318DBD685004F3448 /* SpecialViewController.m */,
 				04A4784C18DBD685004F3448 /* FavouriteViewController.h */,
 				04A4784D18DBD685004F3448 /* FavouriteViewController.m */,
+				04A4786718DC3758004F3448 /* DetailViewController.h */,
+				04A4786818DC3758004F3448 /* DetailViewController.m */,
+				04D4EB6618E1646E0052F14A /* AudioViewController.h */,
+				04D4EB6718E1646E0052F14A /* AudioViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,8 +322,10 @@
 				0491870118DA9CEF008F42CC /* AppDelegate.m in Sources */,
 				04A4786318DC240C004F3448 /* SpecialTableViewCell.m in Sources */,
 				04A4785418DBD685004F3448 /* BaseViewController.m in Sources */,
+				04D4EB6818E1646E0052F14A /* AudioViewController.m in Sources */,
 				04A4786018DC1E38004F3448 /* GridView.m in Sources */,
 				04A4785618DBD685004F3448 /* HomeViewController.m in Sources */,
+				04A4786918DC3758004F3448 /* DetailViewController.m in Sources */,
 				049186FD18DA9CEF008F42CC /* main.m in Sources */,
 				04A4785818DBD685004F3448 /* SpecialViewController.m in Sources */,
 				04A4785718DBD685004F3448 /* RecommandViewController.m in Sources */,

@@ -14,6 +14,15 @@
 
 @implementation BaseViewController
 
+#pragma mark - private
+
+- (void)clickBackButton:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - super
+
 - (id)init
 {
     self = [super init];
@@ -47,6 +56,17 @@
     _titleLabel.textColor = [UIColor blackColor];
     _titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [_headView addSubview:_titleLabel];
+    
+    _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _backButton.frame = CGRectMake(2, 2, 40, 40);
+    _backButton.backgroundColor = [UIColor whiteColor];
+    [_backButton setTitle:@"Back" forState:UIControlStateNormal];
+    [_backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _backButton.titleLabel.font = [UIFont systemFontOfSize:10.0f];
+    _backButton.layer.borderWidth = 1.0;
+    _backButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    [_backButton addTarget:self action:@selector(clickBackButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_headView addSubview:_backButton];
 }
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

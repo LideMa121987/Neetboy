@@ -8,8 +8,9 @@
 
 #import "RecommandViewController.h"
 #import "GridView.h"
+#import "DetailViewController.h"
 
-@interface RecommandViewController ()
+@interface RecommandViewController () <GridViewDelegate>
 
 @end
 
@@ -38,6 +39,7 @@
     [super loadView];
     
     _titleLabel.text = @"Recommand";
+    _backButton.hidden = YES;
 
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - 49);
     
@@ -102,6 +104,7 @@
     {
         view = [[GridView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         view.backgroundColor = [UIColor whiteColor];
+        view.delegate = self;
         view.layer.borderWidth = 1.0;
         view.layer.borderColor = [UIColor darkGrayColor].CGColor;
     }
@@ -110,6 +113,14 @@
     view.frame = CGRectMake(0, 0, size.width, size.height);
     
     return view;
+}
+
+#pragma GridViewDelegate
+
+- (void)gridViewDidTap:(GridView *)gridView
+{
+    DetailViewController *detailVC = [[DetailViewController alloc] init];
+    [self.homeViewController.navigationController pushViewController:detailVC animated:YES];
 }
 
 @end
