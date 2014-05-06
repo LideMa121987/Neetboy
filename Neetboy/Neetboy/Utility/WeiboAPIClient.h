@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^QYAPISuccessBlock)(NSData *data);
+typedef void (^QYAPIFailureBlock)(NSError *error);
+
+#define kTGBaseURLString @"https://api.weibo.com/2"
+
 @interface WeiboAPIClient : NSObject
 {
     NSMutableDictionary         *_headDictionary;
