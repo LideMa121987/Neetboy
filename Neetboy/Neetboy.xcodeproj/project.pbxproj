@@ -20,6 +20,9 @@
 		0491871418DA9CF0008F42CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0491871218DA9CF0008F42CC /* InfoPlist.strings */; };
 		0491871618DA9CF0008F42CC /* NeetboyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491871518DA9CF0008F42CC /* NeetboyTests.m */; };
 		0491872218DA9EC0008F42CC /* Demo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491872118DA9EC0008F42CC /* Demo.xib */; };
+		0496BEF21918D581000B7241 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496BEEF1918D581000B7241 /* libWeiboSDK.a */; };
+		0496BEF31918D581000B7241 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0496BEF01918D581000B7241 /* WeiboSDK.bundle */; };
+		0496BEF61918D6C4000B7241 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496BEF51918D6C4000B7241 /* LoginViewController.m */; };
 		04A4785418DBD685004F3448 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784B18DBD685004F3448 /* BaseViewController.m */; };
 		04A4785518DBD685004F3448 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784D18DBD685004F3448 /* FavouriteViewController.m */; };
 		04A4785618DBD685004F3448 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784F18DBD685004F3448 /* HomeViewController.m */; };
@@ -60,6 +63,11 @@
 		0491871318DA9CF0008F42CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0491871518DA9CF0008F42CC /* NeetboyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeetboyTests.m; sourceTree = "<group>"; };
 		0491872118DA9EC0008F42CC /* Demo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Demo.xib; sourceTree = "<group>"; };
+		0496BEEF1918D581000B7241 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		0496BEF01918D581000B7241 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		0496BEF11918D581000B7241 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		0496BEF41918D6C4000B7241 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		0496BEF51918D6C4000B7241 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		04A4784A18DBD685004F3448 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		04A4784B18DBD685004F3448 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		04A4784C18DBD685004F3448 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
@@ -90,6 +98,7 @@
 				049186F318DA9CEF008F42CC /* CoreGraphics.framework in Frameworks */,
 				049186F518DA9CEF008F42CC /* UIKit.framework in Frameworks */,
 				049186F118DA9CEF008F42CC /* Foundation.framework in Frameworks */,
+				0496BEF21918D581000B7241 /* libWeiboSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +148,7 @@
 		049186F618DA9CEF008F42CC /* Neetboy */ = {
 			isa = PBXGroup;
 			children = (
+				0496BEE81918D564000B7241 /* 3rd */,
 				04A4785918DBD6B2004F3448 /* Model */,
 				04A4785A18DBD6C0004F3448 /* View */,
 				04A4784918DBD685004F3448 /* Controller */,
@@ -180,6 +190,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0496BEE81918D564000B7241 /* 3rd */ = {
+			isa = PBXGroup;
+			children = (
+				0496BEEA1918D564000B7241 /* WeiboSDK */,
+			);
+			path = 3rd;
+			sourceTree = "<group>";
+		};
+		0496BEEA1918D564000B7241 /* WeiboSDK */ = {
+			isa = PBXGroup;
+			children = (
+				0496BEEF1918D581000B7241 /* libWeiboSDK.a */,
+				0496BEF01918D581000B7241 /* WeiboSDK.bundle */,
+				0496BEF11918D581000B7241 /* WeiboSDK.h */,
+			);
+			path = WeiboSDK;
+			sourceTree = "<group>";
+		};
 		04A4784918DBD685004F3448 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +225,8 @@
 				04A4786818DC3758004F3448 /* DetailViewController.m */,
 				04D4EB6618E1646E0052F14A /* AudioViewController.h */,
 				04D4EB6718E1646E0052F14A /* AudioViewController.m */,
+				0496BEF41918D6C4000B7241 /* LoginViewController.h */,
+				0496BEF51918D6C4000B7241 /* LoginViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -299,6 +329,7 @@
 				049186FB18DA9CEF008F42CC /* InfoPlist.strings in Resources */,
 				0491872218DA9EC0008F42CC /* Demo.xib in Resources */,
 				0491870318DA9CEF008F42CC /* Images.xcassets in Resources */,
+				0496BEF31918D581000B7241 /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +350,7 @@
 			files = (
 				04A4785D18DBDFA5004F3448 /* SMGridView.m in Sources */,
 				04A4785518DBD685004F3448 /* FavouriteViewController.m in Sources */,
+				0496BEF61918D6C4000B7241 /* LoginViewController.m in Sources */,
 				0491870118DA9CEF008F42CC /* AppDelegate.m in Sources */,
 				04A4786318DC240C004F3448 /* SpecialTableViewCell.m in Sources */,
 				04A4785418DBD685004F3448 /* BaseViewController.m in Sources */,
@@ -445,10 +477,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lide Ma (C87W5P53R8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Neetboy/Neetboy-Prefix.pch";
 				INFOPLIST_FILE = "Neetboy/Neetboy-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Neetboy/3rd",
+					"$(PROJECT_DIR)/Neetboy/3rd/WeiboSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E8D4474E-FF2B-4990-9E67-9225DE8EA74D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -458,10 +498,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lide Ma (C87W5P53R8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Neetboy/Neetboy-Prefix.pch";
 				INFOPLIST_FILE = "Neetboy/Neetboy-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Neetboy/3rd",
+					"$(PROJECT_DIR)/Neetboy/3rd/WeiboSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E8D4474E-FF2B-4990-9E67-9225DE8EA74D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
