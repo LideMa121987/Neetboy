@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, WeiboSDKDelegate>
+{
+    NSString    *_weiboUserId;
+    NSString    *_weiboAccessToken;
+    NSDate      *_weiboExpirationDate;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) NSString *weiboUserId;
+@property (strong, nonatomic) NSString *weiboAccessToken;
+@property (strong, nonatomic) NSDate *weiboExpirationDate;
 
 @end

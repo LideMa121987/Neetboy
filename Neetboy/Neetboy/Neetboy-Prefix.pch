@@ -16,4 +16,9 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "WeiboSDK.h"
+
+#define kAppKey         @"485603341"
+#define kRedirectURI    @"http://weibo.com"
+
 #endif

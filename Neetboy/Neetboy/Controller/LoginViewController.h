@@ -11,6 +11,7 @@
 @interface LoginViewController : UIViewController
 {
     UIButton    *_loginButton;
+    UIButton    *_logoutButton;
 }
 
 @end
