@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "SpecialTableViewCell.h"
 
 #define kButtonTag 17782
 
@@ -21,9 +22,6 @@
 - (void)clickButton:(id)sender
 {
     [_scrollView setContentOffset:CGPointZero animated:YES];
-//    [UIView animateWithDuration:0.2 animations:^{
-//        _floatView.transform = CGAffineTransformIdentity;
-//    }];
     NSUInteger index = [sender tag] - kButtonTag;
     [_pictureScrollView setContentOffset:CGPointMake(_pictureScrollView.frame.size.width * index, 0) animated:YES];
 }
@@ -35,7 +33,12 @@
     self = [super init];
     if(self != nil)
     {
-    
+        _detailArray = [[NSMutableArray alloc] initWithCapacity:0];
+        for(NSUInteger i = 0; i < 40; i++)
+        {
+            CGSize size = CGSizeMake(320, 60 + rand() % 3 * 10);
+            [_detailArray addObject:NSStringFromCGSize(size)];
+        }
     }
     
     return self;
@@ -48,7 +51,7 @@
     _titleLabel.text = @"Detail";
     
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, _adjustView.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - _adjustView.frame.size.height)];
-    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, _scrollView.frame.size.height * 2);
+    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, _scrollView.frame.size.height * 2 - 60);
     _scrollView.pagingEnabled = YES;
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
@@ -57,6 +60,12 @@
     _pictureScrollView.contentSize = CGSizeMake(_pictureScrollView.frame.size.width * 4, _pictureScrollView.frame.size.height);
     _pictureScrollView.pagingEnabled = YES;
     [_scrollView addSubview:_pictureScrollView];
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _scrollView.frame.size.height, 320, _scrollView.frame.size.height - 60) style:UITableViewStylePlain];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    _tableView.separatorColor = [UIColor clearColor];
+    [_scrollView addSubview:_tableView];
     
     _floatView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 60, self.view.frame.size.width, 60)];
     _floatView.backgroundColor = [UIColor whiteColor];
@@ -115,39 +124,56 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if(scrollView.contentOffset.y > scrollView.frame.size.height - _floatView.frame.size.height)
+    if([scrollView isEqual:_scrollView])
     {
-        _floatView.transform = CGAffineTransformMake(1, 0, 0, 1, 0, _floatView.frame.size.height - scrollView.frame.size.height);
-    }
-    else if(scrollView.contentOffset.y < 0)
-    {
-        _floatView.transform = CGAffineTransformIdentity;
-    }
-    else
-    {
-        _floatView.transform = CGAffineTransformMake(1, 0, 0, 1, 0, -scrollView.contentOffset.y);
+        if(scrollView.contentOffset.y > scrollView.frame.size.height - _floatView.frame.size.height)
+        {
+            _floatView.transform = CGAffineTransformMake(1, 0, 0, 1, 0, _floatView.frame.size.height - scrollView.frame.size.height);
+        }
+        else if(scrollView.contentOffset.y < 0)
+        {
+            _floatView.transform = CGAffineTransformIdentity;
+        }
+        else
+        {
+            _floatView.transform = CGAffineTransformMake(1, 0, 0, 1, 0, -scrollView.contentOffset.y);
+        }
     }
 }
 
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    NSUInteger index = scrollView.contentOffset.y / scrollView.frame.size.height;
-//    switch (index) {
-//        case 0:
-//        {
-//            [UIView animateWithDuration:0.2 animations:^{
-//                _floatView.transform = CGAffineTransformIdentity;
-//            }];
-//        }
-//            break;
-//        default:
-//        {
-//            [UIView animateWithDuration:0.2 animations:^{
-//                _floatView.transform = CGAffineTransformMake(1, 0, 0, 1, 0, _floatView.frame.size.height);
-//            }];
-//        }
-//            break;
-//    }
-//}
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_detailArray count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%i", (int)indexPath.row);
+    return CGSizeFromString([_detailArray objectAtIndex:indexPath.row]).height;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SpecialTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailViewControllerIdentifier"];
+    if(cell == nil)
+    {
+        cell = [[SpecialTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DetailViewControllerIdentifier"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    CGSize size = CGSizeFromString([_detailArray objectAtIndex:indexPath.row]);
+    cell.frame = CGRectMake(0, 0, size.width, size.height);
+    
+    return cell;
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
 
 @end
