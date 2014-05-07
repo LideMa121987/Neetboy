@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RecommandViewController.h"
+#import "TimelineViewController.h"
+//#import "RecommandViewController.h"
 #import "SpecialViewController.h"
 #import "FavouriteViewController.h"
 
@@ -20,11 +21,13 @@
     
     UIView          *_footView;
     
-    UIButton        *_recommandButton;
+    UIButton        *_timelineButton;
+//    UIButton        *_recommandButton;
     UIButton        *_specialButton;
     UIButton        *_favouriteButton;
     
-    RecommandViewController     *_recommandVC;
+    TimelineViewController      *_timelineVC;
+//    RecommandViewController     *_recommandVC;
     SpecialViewController       *_specialVC;
     FavouriteViewController     *_favouriteVC;
 }

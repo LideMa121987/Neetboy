@@ -61,8 +61,7 @@
             
             NSData *data = [myRequest responseData];
             
-            NSDictionary *dictionary = (NSDictionary *)[self responseJSON:data];
-            
+            successBlock(data);
         }];
         
         [myRequest setFailedBlock:^{
@@ -105,7 +104,7 @@
             
             NSData *data = [myRequest responseData];
             
-            NSDictionary *dictionary = (NSDictionary *)[self responseJSON:data];
+            successBlock(data);
             
         }];
         
@@ -166,11 +165,64 @@ static id APIClient = nil;
         
         if(access_token && [access_token length] > 0)
         {
-            [_headDictionary setObject:access_token forKey:@"oauth_token"];
+            [_headDictionary setObject:access_token forKey:@"access_token"];
         }
     }
     
     return self;
+}
+
+#pragma mark - API method
+
+/*
+ 获取当前登录用户及其所关注用户的最新微博
+ */
+- (void)getWeiboFriendsTimelineWithSinceId:(int64_t)sinceId
+                                     maxId:(int64_t)maxId
+                                     count:(int)count
+                                      page:(int)page
+                                   baseApp:(int)baseApp
+                                   feature:(int)feature
+                                  trimUser:(int)trimUser
+                                   success:(QYAPISuccessBlock)successBlock
+                                   failure:(QYAPIFailureBlock)failureBlock
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
+    
+    if(sinceId > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%lli", (int64_t)sinceId] forKey:@"since_id"];
+    }
+    if(maxId > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%lli", (int64_t)maxId] forKey:@"max_id"];
+    }
+    if(count > 0 && count <= 100)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", count] forKey:@"count"];
+    }
+    if(page > 1)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", page] forKey:@"page"];
+    }
+    if(baseApp > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", baseApp] forKey:@"base_app"];
+    }
+    if(feature > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", feature] forKey:@"feature"];
+    }
+    if(trimUser > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", trimUser] forKey:@"trim_user"];
+    }
+    
+    [self sendRequestPath:@"statuses/friends_timeline.json"
+                   params:params
+                   method:@"GET"
+                  success:successBlock
+                  failure:failureBlock];
 }
 
 @end

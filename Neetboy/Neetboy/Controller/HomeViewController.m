@@ -16,10 +16,15 @@
 
 #pragma mark - private
 
-- (void)clickRecommandButton:(id)sender
+- (void)clickTimelineButton:(id)sender
 {
-    [self.view addSubview:_recommandVC.view];
+    [self.view addSubview:_timelineVC.view];
 }
+
+//- (void)clickRecommandButton:(id)sender
+//{
+//    [self.view addSubview:_recommandVC.view];
+//}
 
 - (void)clickSpecialButton:(id)sender
 {
@@ -72,18 +77,28 @@
     _footView.layer.borderWidth = 1.0;
     _footView.layer.borderColor = [UIColor blackColor].CGColor;
     [self.view addSubview:_footView];
+
+    _timelineButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    _timelineButton.frame = CGRectMake(2, 2, 104, 45);
+    _timelineButton.layer.borderWidth = 1.0;
+    _timelineButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    _timelineButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [_timelineButton setTitle:@"Timeline" forState:UIControlStateNormal];
+    [_timelineButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_timelineButton addTarget:self action:@selector(clickTimelineButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_footView addSubview:_timelineButton];
     
-    _recommandButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _recommandButton.frame = CGRectMake(2, 2, 104, 45);
-    _recommandButton.layer.borderWidth = 1.0;
-    _recommandButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    _recommandButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [_recommandButton setTitle:@"Recommand" forState:UIControlStateNormal];
-    [_recommandButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_recommandButton addTarget:self action:@selector(clickRecommandButton:) forControlEvents:UIControlEventTouchUpInside];
-    [_footView addSubview:_recommandButton];
+//    _recommandButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _recommandButton.frame = CGRectMake(2, 2, 104, 45);
+//    _recommandButton.layer.borderWidth = 1.0;
+//    _recommandButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+//    _recommandButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+//    [_recommandButton setTitle:@"Recommand" forState:UIControlStateNormal];
+//    [_recommandButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [_recommandButton addTarget:self action:@selector(clickRecommandButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [_footView addSubview:_recommandButton];
     
-    _specialButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _specialButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     _specialButton.frame = CGRectMake(108, 2, 104, 45);
     _specialButton.layer.borderWidth = 1.0;
     _specialButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
@@ -93,7 +108,7 @@
     [_specialButton addTarget:self action:@selector(clickSpecialButton:) forControlEvents:UIControlEventTouchUpInside];
     [_footView addSubview:_specialButton];
     
-    _favouriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _favouriteButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     _favouriteButton.frame = CGRectMake(214, 2, 104, 45);
     _favouriteButton.layer.borderWidth = 1.0;
     _favouriteButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
@@ -102,10 +117,14 @@
     [_favouriteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_favouriteButton addTarget:self action:@selector(clickFavouriteButton:) forControlEvents:UIControlEventTouchUpInside];
     [_footView addSubview:_favouriteButton];
+
+    _timelineVC = [[TimelineViewController alloc] init];
+    _timelineVC.homeViewController = self;
+    [self.view addSubview:_timelineVC.view];
     
-    _recommandVC = [[RecommandViewController alloc] init];
-    _recommandVC.homeViewController = self;
-    [self.view addSubview:_recommandVC.view];
+//    _recommandVC = [[RecommandViewController alloc] init];
+//    _recommandVC.homeViewController = self;
+//    [self.view addSubview:_recommandVC.view];
     
     _specialVC = [[SpecialViewController alloc] init];
     _specialVC.homeViewController = self;

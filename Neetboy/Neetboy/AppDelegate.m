@@ -47,15 +47,15 @@
 //    navigationVC.navigationBarHidden = YES;
 //    self.window.rootViewController = navigationVC;
     
-    if(self.weiboAccessToken != nil && ![self.weiboAccessToken isEqualToString:@""])
-    {
-        [self showHomeViewController];
-    }
-    else
-    {
+//    if(self.weiboAccessToken != nil && ![self.weiboAccessToken isEqualToString:@""])
+//    {
+//        [self showHomeViewController];
+//    }
+//    else
+//    {
         LoginViewController *loginVC = [[LoginViewController alloc] init];
         self.window.rootViewController = loginVC;
-    }
+//    }
     return YES;
 }
 

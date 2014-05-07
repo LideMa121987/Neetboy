@@ -57,7 +57,7 @@
     _titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [_headView addSubview:_titleLabel];
     
-    _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _backButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     _backButton.frame = CGRectMake(2, 2, 40, 40);
     _backButton.backgroundColor = [UIColor whiteColor];
     [_backButton setTitle:@"Back" forState:UIControlStateNormal];

@@ -11,7 +11,7 @@
 typedef void (^QYAPISuccessBlock)(NSData *data);
 typedef void (^QYAPIFailureBlock)(NSError *error);
 
-#define kTGBaseURLString @"https://api.weibo.com/2"
+#define kTGBaseURLString @"https://api.weibo.com/2/"
 
 @interface WeiboAPIClient : NSObject
 {
@@ -19,5 +19,20 @@ typedef void (^QYAPIFailureBlock)(NSError *error);
 }
 
 + (id)sharedInstance;
+
+- (id)responseJSON:(NSData *)data;
+
+/*
+ 获取当前登录用户及其所关注用户的最新微博
+ */
+- (void)getWeiboFriendsTimelineWithSinceId:(int64_t)sinceId
+                                     maxId:(int64_t)maxId
+                                     count:(int)count
+                                      page:(int)page
+                                   baseApp:(int)baseApp
+                                   feature:(int)feature
+                                  trimUser:(int)trimUser
+                                   success:(QYAPISuccessBlock)successBlock
+                                   failure:(QYAPIFailureBlock)failureBlock;
 
 @end

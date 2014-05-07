@@ -17,8 +17,12 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "WeiboSDK.h"
+#import "WeiboAPIClient.h"
 
 #define kAppKey         @"485603341"
 #define kRedirectURI    @"http://weibo.com"
+
+#define LM_SAFE_RELEASE(X)  [X release]; X = nil;
+#define LM_VIEW_RELEASE(X)  [X removeFromSuperview]; [X release]; X = nil;
 
 #endif
