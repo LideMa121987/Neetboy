@@ -33,6 +33,8 @@
 @synthesize picURLs = _picURLs;
 @synthesize ad = _ad;
 
+@synthesize onePictureHeight = _onePictureHeight;
+
 - (id)initWithAttribute:(NSDictionary *)attribute
 {
     self = [super init];
@@ -103,6 +105,22 @@
     height += textRect.size.height;
     height += 50;
     
+    if(self.picURLs && self.picURLs.count > 1)
+    {
+        NSUInteger count = self.picURLs.count;
+        NSUInteger line = 0;
+        if(count % 3 == 0)
+        {
+            line = count / 3;
+        }
+        else
+        {
+            line = count / 3 + 1;
+        }
+        
+        height += line * 95;
+    }
+    
     if(self.retweetedStatus != nil)
     {
         textRect = [self.retweetedStatus.text boundingRectWithSize:CGSizeMake(290, 600)
@@ -116,6 +134,27 @@
         
         height += textRect.size.height;
         height += 45;
+        
+        if(self.retweetedStatus.picURLs && self.retweetedStatus.picURLs.count > 1)
+        {
+            NSUInteger count = self.retweetedStatus.picURLs.count;
+            NSUInteger line = 0;
+            if(count % 3 == 0)
+            {
+                line = count / 3;
+            }
+            else
+            {
+                line = count / 3 + 1;
+            }
+            
+            height += line * 95;
+        }
+    }
+    
+    if(self.onePictureHeight > 0)
+    {
+        height += self.onePictureHeight + 5;
     }
     
     return height;
@@ -195,6 +234,70 @@
                                                                         failureBlock(error);
                                                                     }
                                                                 }];
+}
+
++ (void)getUserWeiboListWithUserId:(int64_t)userId
+                        screenName:(NSString *)screenName
+                           sinceId:(int64_t)sinceId
+                             maxId:(int64_t)maxId
+                             count:(int)count
+                              page:(int)page
+                           baseApp:(int)baseApp
+                           feature:(int)feature
+                          trimUser:(int)trimUser
+                           success:(LMObjectSuccessBlock)successBlock
+                           failure:(LMObjectFailureBlock)failureBlock
+{
+    [[WeiboAPIClient sharedInstance] getUserWeiboListWithUserId:userId
+                                                     screenName:screenName
+                                                        sinceId:sinceId
+                                                          maxId:maxId
+                                                          count:count
+                                                           page:page
+                                                        baseApp:baseApp
+                                                        feature:feature
+                                                       trimUser:trimUser
+                                                        success:^(NSData *data) {
+                                                            if(successBlock)
+                                                            {
+                                                                successBlock([LMWeibo parseFromeData:data]);
+                                                            }
+                                                        } failure:^(NSError *error) {
+                                                            if(failureBlock)
+                                                            {
+                                                                failureBlock(error);
+                                                            }
+                                                        }];
+}
+
++ (void)getMentionWeiboListWithSinceId:(int64_t)sinceId
+                                 maxId:(int64_t)maxId
+                                 count:(int)count
+                                  page:(int)page
+                        filterByAuthor:(int)filterByAuthor
+                        filterBySource:(int)filterBySource
+                          filterByType:(int)filterByType
+                               success:(LMObjectSuccessBlock)successBlock
+                               failure:(LMObjectFailureBlock)failureBlock
+{
+    [[WeiboAPIClient sharedInstance] getMentionWeiboListWithSinceId:sinceId
+                                                              maxId:maxId
+                                                              count:count
+                                                               page:page
+                                                     filterByAuthor:filterByAuthor
+                                                     filterBySource:filterBySource
+                                                       filterByType:filterByType
+                                                            success:^(NSData *data) {
+                                                                if(successBlock)
+                                                                {
+                                                                    successBlock([LMWeibo parseFromeData:data]);
+                                                                }
+                                                            } failure:^(NSError *error) {
+                                                                if(failureBlock)
+                                                                {
+                                                                    failureBlock(error);
+                                                                }
+                                                            }];
 }
 
 @end

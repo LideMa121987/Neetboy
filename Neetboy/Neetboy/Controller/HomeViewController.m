@@ -18,6 +18,16 @@
 
 - (void)clickTimelineButton:(id)sender
 {
+    if(_timelineButton.selected)
+    {
+        [_timelineVC reloadData];
+        return;
+    }
+    
+    _timelineButton.selected = YES;
+    _mineButton.selected = NO;
+    _mentionButton.selected = NO;
+    
     [self.view addSubview:_timelineVC.view];
 }
 
@@ -26,15 +36,45 @@
 //    [self.view addSubview:_recommandVC.view];
 //}
 
-- (void)clickSpecialButton:(id)sender
+- (void)clickMineButton:(id)sender
 {
-    [self.view addSubview:_specialVC.view];
+    if(_mineButton.selected)
+    {
+        [_mineVC reloadData];
+        return;
+    }
+    
+    _timelineButton.selected = NO;
+    _mineButton.selected = YES;
+    _mentionButton.selected = NO;
+    
+    [self.view addSubview:_mineVC.view];
 }
 
-- (void)clickFavouriteButton:(id)sender
+//- (void)clickSpecialButton:(id)sender
+//{
+//    [self.view addSubview:_specialVC.view];
+//}
+
+- (void)clickMentionButton:(id)sender
 {
-    [self.view addSubview:_favouriteVC.view];
+    if(_mentionButton.selected)
+    {
+        [_mentionVC reloadData];
+        return;
+    }
+    
+    _timelineButton.selected = NO;
+    _mineButton.selected = NO;
+    _mentionButton.selected = YES;
+    
+    [self.view addSubview:_mentionVC.view];
 }
+
+//- (void)clickFavouriteButton:(id)sender
+//{
+//    [self.view addSubview:_favouriteVC.view];
+//}
 
 #pragma mark - super
 
@@ -98,39 +138,64 @@
 //    [_recommandButton addTarget:self action:@selector(clickRecommandButton:) forControlEvents:UIControlEventTouchUpInside];
 //    [_footView addSubview:_recommandButton];
     
-    _specialButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    _specialButton.frame = CGRectMake(108, 2, 104, 45);
-    _specialButton.layer.borderWidth = 1.0;
-    _specialButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    _specialButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [_specialButton setTitle:@"Special" forState:UIControlStateNormal];
-    [_specialButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_specialButton addTarget:self action:@selector(clickSpecialButton:) forControlEvents:UIControlEventTouchUpInside];
-    [_footView addSubview:_specialButton];
+    _mineButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    _mineButton.frame = CGRectMake(108, 2, 104, 45);
+    _mineButton.layer.borderWidth = 1.0;
+    _mineButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    _mineButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [_mineButton setTitle:@"Mine" forState:UIControlStateNormal];
+    [_mineButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_mineButton addTarget:self action:@selector(clickMineButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_footView addSubview:_mineButton];
     
-    _favouriteButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    _favouriteButton.frame = CGRectMake(214, 2, 104, 45);
-    _favouriteButton.layer.borderWidth = 1.0;
-    _favouriteButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    _favouriteButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-    [_favouriteButton setTitle:@"Favourite" forState:UIControlStateNormal];
-    [_favouriteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_favouriteButton addTarget:self action:@selector(clickFavouriteButton:) forControlEvents:UIControlEventTouchUpInside];
-    [_footView addSubview:_favouriteButton];
+//    _specialButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+//    _specialButton.frame = CGRectMake(108, 2, 104, 45);
+//    _specialButton.layer.borderWidth = 1.0;
+//    _specialButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+//    _specialButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+//    [_specialButton setTitle:@"Special" forState:UIControlStateNormal];
+//    [_specialButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [_specialButton addTarget:self action:@selector(clickSpecialButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [_footView addSubview:_specialButton];
+    
+    _mentionButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    _mentionButton.frame = CGRectMake(214, 2, 104, 45);
+    _mentionButton.layer.borderWidth = 1.0;
+    _mentionButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    _mentionButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [_mentionButton setTitle:@"Mention" forState:UIControlStateNormal];
+    [_mentionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_mentionButton addTarget:self action:@selector(clickMentionButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_footView addSubview:_mentionButton];
+    
+//    _favouriteButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+//    _favouriteButton.frame = CGRectMake(214, 2, 104, 45);
+//    _favouriteButton.layer.borderWidth = 1.0;
+//    _favouriteButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+//    _favouriteButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+//    [_favouriteButton setTitle:@"Favourite" forState:UIControlStateNormal];
+//    [_favouriteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [_favouriteButton addTarget:self action:@selector(clickFavouriteButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [_footView addSubview:_favouriteButton];
 
     _timelineVC = [[TimelineViewController alloc] init];
     _timelineVC.homeViewController = self;
     [self.view addSubview:_timelineVC.view];
+    _timelineButton.selected = YES;
     
 //    _recommandVC = [[RecommandViewController alloc] init];
 //    _recommandVC.homeViewController = self;
 //    [self.view addSubview:_recommandVC.view];
-    
-    _specialVC = [[SpecialViewController alloc] init];
-    _specialVC.homeViewController = self;
-    
-    _favouriteVC = [[FavouriteViewController alloc] init];
-    _favouriteVC.homeViewController = self;
+
+    _mineVC = [[MineViewController alloc] init];
+    _mineVC.homeViewController = self;
+//    _specialVC = [[SpecialViewController alloc] init];
+//    _specialVC.homeViewController = self;
+
+    _mentionVC = [[MentionViewController alloc] init];
+    _mentionVC.homeViewController = self;
+//    _favouriteVC = [[FavouriteViewController alloc] init];
+//    _favouriteVC.homeViewController = self;
 }
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

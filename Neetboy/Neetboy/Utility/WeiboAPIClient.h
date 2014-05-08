@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^QYAPISuccessBlock)(NSData *data);
-typedef void (^QYAPIFailureBlock)(NSError *error);
+typedef void (^LMAPISuccessBlock)(NSData *data);
+typedef void (^LMAPIFailureBlock)(NSError *error);
 
 #define kTGBaseURLString @"https://api.weibo.com/2/"
 
@@ -32,7 +32,35 @@ typedef void (^QYAPIFailureBlock)(NSError *error);
                                    baseApp:(int)baseApp
                                    feature:(int)feature
                                   trimUser:(int)trimUser
-                                   success:(QYAPISuccessBlock)successBlock
-                                   failure:(QYAPIFailureBlock)failureBlock;
+                                   success:(LMAPISuccessBlock)successBlock
+                                   failure:(LMAPIFailureBlock)failureBlock;
+
+/*
+ 获取某个用户最新发表的微博列表
+ */
+- (void)getUserWeiboListWithUserId:(int64_t)userId
+                        screenName:(NSString *)screenName
+                           sinceId:(int64_t)sinceId
+                             maxId:(int64_t)maxId
+                             count:(int)count
+                              page:(int)page
+                           baseApp:(int)baseApp
+                           feature:(int)feature
+                          trimUser:(int)trimUser
+                           success:(LMAPISuccessBlock)successBlock
+                           failure:(LMAPIFailureBlock)failureBlock;
+
+/*
+ 获取最新的提到登录用户的微博列表，即@我的微博
+ */
+- (void)getMentionWeiboListWithSinceId:(int64_t)sinceId
+                                 maxId:(int64_t)maxId
+                                 count:(int)count
+                                  page:(int)page
+                        filterByAuthor:(int)filterByAuthor
+                        filterBySource:(int)filterBySource
+                          filterByType:(int)filterByType
+                               success:(LMAPISuccessBlock)successBlock
+                               failure:(LMAPIFailureBlock)failureBlock;
 
 @end

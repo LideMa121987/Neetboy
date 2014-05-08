@@ -9,8 +9,9 @@
 #import "TimelineViewController.h"
 #import "LMWeibo.h"
 #import "WeiboCell.h"
+#import "UserViewController.h"
 
-@interface TimelineViewController ()
+@interface TimelineViewController () <WeiboCellDelegate>
 
 @end
 
@@ -18,12 +19,43 @@
 
 @synthesize homeViewController = _homeViewController;
 
+#pragma mark - private
+
+- (void)loadMoreWeibo
+{
+    if(_loading)
+    {
+        return;
+    }
+    _loading = YES;
+    
+    [LMWeibo getWeiboFriendsTimelineWithSinceId:0
+                                          maxId:[[_weiboArray lastObject] weiboId] - 1
+                                          count:0
+                                           page:0
+                                        baseApp:0
+                                        feature:0
+                                       trimUser:0
+                                        success:^(NSArray *array) {
+                                            
+                                            _loading = NO;
+                                            
+                                            [_weiboArray addObjectsFromArray:array];
+                                            [_tableView reloadData];
+                                        } failure:^(NSError *error) {
+                                            
+                                            _loading = NO;
+                                            
+                                        }];
+}
+
 - (id)init
 {
     self = [super init];
     if(self != nil)
     {
         _weiboArray = [[NSMutableArray alloc] initWithCapacity:0];
+        _loading = NO;
     }
     
     return self;
@@ -59,6 +91,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _loading = YES;
+    
     [LMWeibo getWeiboFriendsTimelineWithSinceId:0
                                           maxId:0
                                           count:0
@@ -67,10 +102,15 @@
                                         feature:0
                                        trimUser:0
                                         success:^(NSArray *array) {
+                                            
+                                            _loading = NO;
+                                            
                                             [_weiboArray removeAllObjects];
                                             [_weiboArray addObjectsFromArray:array];
                                             [_tableView reloadData];
                                         } failure:^(NSError *error) {
+                                            
+                                            _loading = NO;
                                             
                                         }];
 }
@@ -92,6 +132,49 @@
 }
 */
 
+#pragma mark - public
+
+- (void)reloadData
+{
+    if(_loading)
+    {
+        return;
+    }
+    _loading = YES;
+    
+    [_tableView setContentOffset:CGPointZero animated:YES];
+    
+    [LMWeibo getWeiboFriendsTimelineWithSinceId:0
+                                          maxId:0
+                                          count:0
+                                           page:0
+                                        baseApp:0
+                                        feature:0
+                                       trimUser:0
+                                        success:^(NSArray *array) {
+                                            
+                                            _loading = NO;
+                                            
+                                            [_weiboArray removeAllObjects];
+                                            [_weiboArray addObjectsFromArray:array];
+                                            [_tableView reloadData];
+                                        } failure:^(NSError *error) {
+                                            
+                                            _loading = NO;
+                                            
+                                        }];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if(scrollView.contentOffset.y + 200 > scrollView.contentSize.height - scrollView.frame.size.height)
+    {
+        [self loadMoreWeibo];
+    }
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -111,11 +194,39 @@
     {
         cell = [[[WeiboCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TimelineViewControllerIdentifier"] autorelease];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.delegate = self;
     }
     
     [cell setWeibo:[_weiboArray objectAtIndex:indexPath.row]];
     
     return cell;
 }
+
+#pragma mark - UITableViewDelegate
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+#pragma mark - WeiboCellDelegate
+
+- (void)weiboCellUpdateOnePictureHeight:(WeiboCell *)weiboCell
+{
+    __block NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_weiboArray indexOfObject:weiboCell.weibo] inSection:0];
+    if(indexPath != nil)// && weiboCell.weibo.weiboId == [[_weiboArray objectAtIndex:indexPath.row] weiboId])
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        });
+    }
+}
+
+//- (void)weiboCellDidTapAvatar:(LMUser *)user
+//{
+//    UserViewController *userVC = [[[UserViewController alloc] init] autorelease];
+//    userVC.user = user;
+//    [self.homeViewController.navigationController pushViewController:userVC animated:YES];
+//}
 
 @end

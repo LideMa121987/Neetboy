@@ -23,6 +23,9 @@
 		04034B78191A3261002A125A /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 04034B68191A3261002A125A /* UIImage+MultiFormat.m */; };
 		04034B79191A3261002A125A /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 04034B6A191A3261002A125A /* UIImage+WebP.m */; };
 		04034B7A191A3261002A125A /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 04034B6C191A3261002A125A /* UIImageView+WebCache.m */; };
+		04034B7D191B1A06002A125A /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04034B7C191B1A06002A125A /* MineViewController.m */; };
+		04034B80191B1E9C002A125A /* MentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04034B7F191B1E9C002A125A /* MentionViewController.m */; };
+		04034B83191B7F91002A125A /* AvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04034B82191B7F91002A125A /* AvatarView.m */; };
 		049186F118DA9CEF008F42CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049186F018DA9CEF008F42CC /* Foundation.framework */; };
 		049186F318DA9CEF008F42CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049186F218DA9CEF008F42CC /* CoreGraphics.framework */; };
 		049186F518DA9CEF008F42CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049186F418DA9CEF008F42CC /* UIKit.framework */; };
@@ -56,6 +59,7 @@
 		0496BF741918E65B000B7241 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496BF731918E65B000B7241 /* Security.framework */; };
 		0496BF761918E666000B7241 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496BF751918E666000B7241 /* MobileCoreServices.framework */; };
 		0496BF781918E74B000B7241 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496BF771918E74B000B7241 /* libz.dylib */; };
+		04A31043191B81E30071A397 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A31042191B81E30071A397 /* UserViewController.m */; };
 		04A4785418DBD685004F3448 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784B18DBD685004F3448 /* BaseViewController.m */; };
 		04A4785518DBD685004F3448 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784D18DBD685004F3448 /* FavouriteViewController.m */; };
 		04A4785618DBD685004F3448 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4784F18DBD685004F3448 /* HomeViewController.m */; };
@@ -116,6 +120,12 @@
 		04034B6A191A3261002A125A /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		04034B6B191A3261002A125A /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		04034B6C191A3261002A125A /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		04034B7B191B1A06002A125A /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		04034B7C191B1A06002A125A /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		04034B7E191B1E9C002A125A /* MentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentionViewController.h; sourceTree = "<group>"; };
+		04034B7F191B1E9C002A125A /* MentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MentionViewController.m; sourceTree = "<group>"; };
+		04034B81191B7F91002A125A /* AvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarView.h; sourceTree = "<group>"; };
+		04034B82191B7F91002A125A /* AvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarView.m; sourceTree = "<group>"; };
 		049186ED18DA9CEF008F42CC /* Neetboy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neetboy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049186F018DA9CEF008F42CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		049186F218DA9CEF008F42CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -170,6 +180,8 @@
 		0496BF731918E65B000B7241 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0496BF751918E666000B7241 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		0496BF771918E74B000B7241 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		04A31041191B81E30071A397 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		04A31042191B81E30071A397 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		04A4784A18DBD685004F3448 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		04A4784B18DBD685004F3448 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		04A4784C18DBD685004F3448 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
@@ -417,6 +429,10 @@
 				04A4784F18DBD685004F3448 /* HomeViewController.m */,
 				04034B47191A1CD8002A125A /* TimelineViewController.h */,
 				04034B48191A1CD8002A125A /* TimelineViewController.m */,
+				04034B7B191B1A06002A125A /* MineViewController.h */,
+				04034B7C191B1A06002A125A /* MineViewController.m */,
+				04034B7E191B1E9C002A125A /* MentionViewController.h */,
+				04034B7F191B1E9C002A125A /* MentionViewController.m */,
 				04A4785018DBD685004F3448 /* RecommandViewController.h */,
 				04A4785118DBD685004F3448 /* RecommandViewController.m */,
 				04A4785218DBD685004F3448 /* SpecialViewController.h */,
@@ -429,6 +445,8 @@
 				04D4EB6718E1646E0052F14A /* AudioViewController.m */,
 				0496BEF41918D6C4000B7241 /* LoginViewController.h */,
 				0496BEF51918D6C4000B7241 /* LoginViewController.m */,
+				04A31041191B81E30071A397 /* UserViewController.h */,
+				04A31042191B81E30071A397 /* UserViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -459,6 +477,8 @@
 				04A4786218DC240C004F3448 /* SpecialTableViewCell.m */,
 				04034B4A191A29D3002A125A /* WeiboCell.h */,
 				04034B4B191A29D3002A125A /* WeiboCell.m */,
+				04034B81191B7F91002A125A /* AvatarView.h */,
+				04034B82191B7F91002A125A /* AvatarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -563,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04DC62131919D8B800DB34D9 /* LMGeo.m in Sources */,
+				04034B83191B7F91002A125A /* AvatarView.m in Sources */,
 				04034B49191A1CD8002A125A /* TimelineViewController.m in Sources */,
 				04034B74191A3261002A125A /* SDWebImageManager.m in Sources */,
 				04034B75191A3261002A125A /* SDWebImagePrefetcher.m in Sources */,
@@ -583,12 +604,15 @@
 				04034B77191A3261002A125A /* UIImage+GIF.m in Sources */,
 				04DC620D1919D3EC00DB34D9 /* LMObject.m in Sources */,
 				04A4785618DBD685004F3448 /* HomeViewController.m in Sources */,
+				04A31043191B81E30071A397 /* UserViewController.m in Sources */,
 				04DC62161919D8EC00DB34D9 /* LMUser.m in Sources */,
 				04DC62101919D45300DB34D9 /* LMWeibo.m in Sources */,
 				04034B76191A3261002A125A /* UIButton+WebCache.m in Sources */,
 				04034B7A191A3261002A125A /* UIImageView+WebCache.m in Sources */,
 				04034B72191A3261002A125A /* SDWebImageDownloader.m in Sources */,
+				04034B80191B1E9C002A125A /* MentionViewController.m in Sources */,
 				04034B79191A3261002A125A /* UIImage+WebP.m in Sources */,
+				04034B7D191B1A06002A125A /* MineViewController.m in Sources */,
 				04034B78191A3261002A125A /* UIImage+MultiFormat.m in Sources */,
 				04A4786918DC3758004F3448 /* DetailViewController.m in Sources */,
 				049186FD18DA9CEF008F42CC /* main.m in Sources */,

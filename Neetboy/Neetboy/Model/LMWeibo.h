@@ -33,6 +33,9 @@
     int             _visible;
     NSArray         *_picURLs;
     NSArray         *_ad;
+    
+    CGFloat         _onePictureHeight;
+    BOOL            _refreshed;
 }
 
 @property (retain, nonatomic) NSString *createdAt;
@@ -56,6 +59,8 @@
 @property (retain, nonatomic) NSArray *picURLs;
 @property (retain, nonatomic) NSArray *ad;
 
+@property (assign, nonatomic) CGFloat onePictureHeight;
+
 - (id)initWithAttribute:(NSDictionary *)attribute;
 - (CGFloat)heightForRow;
 
@@ -68,5 +73,27 @@
                                   trimUser:(int)trimUser
                                    success:(LMObjectSuccessBlock)successBlock
                                    failure:(LMObjectFailureBlock)failureBlock;
+
++ (void)getUserWeiboListWithUserId:(int64_t)userId
+                        screenName:(NSString *)screenName
+                           sinceId:(int64_t)sinceId
+                             maxId:(int64_t)maxId
+                             count:(int)count
+                              page:(int)page
+                           baseApp:(int)baseApp
+                           feature:(int)feature
+                          trimUser:(int)trimUser
+                           success:(LMObjectSuccessBlock)successBlock
+                           failure:(LMObjectFailureBlock)failureBlock;
+
++ (void)getMentionWeiboListWithSinceId:(int64_t)sinceId
+                                 maxId:(int64_t)maxId
+                                 count:(int)count
+                                  page:(int)page
+                        filterByAuthor:(int)filterByAuthor
+                        filterBySource:(int)filterBySource
+                          filterByType:(int)filterByType
+                               success:(LMObjectSuccessBlock)successBlock
+                               failure:(LMObjectFailureBlock)failureBlock;
 
 @end

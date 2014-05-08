@@ -39,8 +39,8 @@
 - (void)sendRequestPath:(NSString *)path
                  params:(NSDictionary *)params
                  method:(NSString *)method
-                success:(QYAPISuccessBlock)successBlock
-                failure:(QYAPIFailureBlock)failureBlock;
+                success:(LMAPISuccessBlock)successBlock
+                failure:(LMAPIFailureBlock)failureBlock;
 {
     
     if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable) {
@@ -184,8 +184,8 @@ static id APIClient = nil;
                                    baseApp:(int)baseApp
                                    feature:(int)feature
                                   trimUser:(int)trimUser
-                                   success:(QYAPISuccessBlock)successBlock
-                                   failure:(QYAPIFailureBlock)failureBlock
+                                   success:(LMAPISuccessBlock)successBlock
+                                   failure:(LMAPIFailureBlock)failureBlock
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
     
@@ -219,6 +219,118 @@ static id APIClient = nil;
     }
     
     [self sendRequestPath:@"statuses/friends_timeline.json"
+                   params:params
+                   method:@"GET"
+                  success:successBlock
+                  failure:failureBlock];
+}
+
+/*
+ 获取某个用户最新发表的微博列表
+ */
+- (void)getUserWeiboListWithUserId:(int64_t)userId
+                        screenName:(NSString *)screenName
+                           sinceId:(int64_t)sinceId
+                             maxId:(int64_t)maxId
+                             count:(int)count
+                              page:(int)page
+                           baseApp:(int)baseApp
+                           feature:(int)feature
+                          trimUser:(int)trimUser
+                           success:(LMAPISuccessBlock)successBlock
+                           failure:(LMAPIFailureBlock)failureBlock
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
+    
+    if(userId > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%lli", userId] forKey:@"uid"];
+    }
+    if(screenName && ![screenName isEqualToString:@""])
+    {
+        [params setObject:screenName forKey:@"screen_name"];
+    }
+    if(sinceId > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%lli", (int64_t)sinceId] forKey:@"since_id"];
+    }
+    if(maxId > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%lli", (int64_t)maxId] forKey:@"max_id"];
+    }
+    if(count > 0 && count <= 100)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", count] forKey:@"count"];
+    }
+    if(page > 1)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", page] forKey:@"page"];
+    }
+    if(baseApp > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", baseApp] forKey:@"base_app"];
+    }
+    if(feature > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", feature] forKey:@"feature"];
+    }
+    if(trimUser > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", trimUser] forKey:@"trim_user"];
+    }
+    
+    [self sendRequestPath:@"statuses/user_timeline.json"
+                   params:params
+                   method:@"GET"
+                  success:successBlock
+                  failure:failureBlock];
+}
+
+/*
+ 获取最新的提到登录用户的微博列表，即@我的微博
+ */
+- (void)getMentionWeiboListWithSinceId:(int64_t)sinceId
+                                 maxId:(int64_t)maxId
+                                 count:(int)count
+                                  page:(int)page
+                        filterByAuthor:(int)filterByAuthor
+                        filterBySource:(int)filterBySource
+                          filterByType:(int)filterByType
+                               success:(LMAPISuccessBlock)successBlock
+                               failure:(LMAPIFailureBlock)failureBlock
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
+    
+    if(sinceId > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%lli", (int64_t)sinceId] forKey:@"since_id"];
+    }
+    if(maxId > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%lli", (int64_t)maxId] forKey:@"max_id"];
+    }
+    if(count > 0 && count <= 100)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", count] forKey:@"count"];
+    }
+    if(page > 1)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", page] forKey:@"page"];
+    }
+    if(filterByAuthor > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", filterByAuthor] forKey:@"filter_by_author"];
+    }
+    if(filterBySource > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", filterBySource] forKey:@"filter_by_source"];
+    }
+    if(filterByType > 0)
+    {
+        [params setObject:[NSString stringWithFormat:@"%i", filterByType] forKey:@"filter_by_type"];
+    }
+    
+    [self sendRequestPath:@"statuses/mentions.json"
                    params:params
                    method:@"GET"
                   success:successBlock

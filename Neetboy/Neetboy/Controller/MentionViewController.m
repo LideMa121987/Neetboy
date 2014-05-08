@@ -1,22 +1,24 @@
 //
-//  FavouriteViewController.m
+//  MentionViewController.m
 //  Neetboy
 //
-//  Created by lide on 14-3-21.
+//  Created by lide on 14-5-8.
 //  Copyright (c) 2014年 lide. All rights reserved.
 //
 
-#import "FavouriteViewController.h"
+#import "MentionViewController.h"
 #import "LMWeibo.h"
 #import "WeiboCell.h"
 
-@interface FavouriteViewController ()
+@interface MentionViewController () <WeiboCellDelegate>
 
 @end
 
-@implementation FavouriteViewController
+@implementation MentionViewController
 
 @synthesize homeViewController = _homeViewController;
+
+#pragma mark - super
 
 - (id)init
 {
@@ -33,7 +35,7 @@
 {
     [super loadView];
     
-    _titleLabel.text = @"Favourite";
+    _titleLabel.text = @"Mention";
     _backButton.hidden = YES;
     
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - 49);
@@ -59,20 +61,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [LMWeibo getWeiboFriendsTimelineWithSinceId:0
-                                          maxId:0
-                                          count:0
-                                           page:0
-                                        baseApp:0
-                                        feature:0
-                                       trimUser:0
-                                        success:^(NSArray *array) {
-                                            [_weiboArray removeAllObjects];
-                                            [_weiboArray addObjectsFromArray:array];
-                                            [_tableView reloadData];
-                                        } failure:^(NSError *error) {
-                                            
-                                        }];
+    [LMWeibo getMentionWeiboListWithSinceId:0
+                                      maxId:0
+                                      count:0
+                                       page:0
+                             filterByAuthor:0
+                             filterBySource:0
+                               filterByType:0
+                                    success:^(NSArray *array) {
+                                        [_weiboArray removeAllObjects];
+                                        [_weiboArray addObjectsFromArray:array];
+                                        [_tableView reloadData];
+
+                                    } failure:^(NSError *error) {
+                                        
+                                    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,6 +95,29 @@
  }
  */
 
+#pragma mark - public
+
+- (void)reloadData
+{
+    [_tableView setContentOffset:CGPointZero animated:YES];
+    
+    [LMWeibo getMentionWeiboListWithSinceId:0
+                                      maxId:0
+                                      count:0
+                                       page:0
+                             filterByAuthor:0
+                             filterBySource:0
+                               filterByType:0
+                                    success:^(NSArray *array) {
+                                        [_weiboArray removeAllObjects];
+                                        [_weiboArray addObjectsFromArray:array];
+                                        [_tableView reloadData];
+                                        
+                                    } failure:^(NSError *error) {
+                                        
+                                    }];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -101,6 +127,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     return [[_weiboArray objectAtIndex:indexPath.row] heightForRow];
 }
 
@@ -111,11 +138,23 @@
     {
         cell = [[[WeiboCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TimelineViewControllerIdentifier"] autorelease];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.delegate = self;
     }
     
     [cell setWeibo:[_weiboArray objectAtIndex:indexPath.row]];
     
     return cell;
+}
+
+- (void)weiboCellUpdateOnePictureHeight:(WeiboCell *)weiboCell
+{
+    __block NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_weiboArray indexOfObject:weiboCell.weibo] inSection:0];
+    if(indexPath != nil)// && weiboCell.weibo.weiboId == [[_weiboArray objectAtIndex:indexPath.row] weiboId])
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        });
+    }
 }
 
 @end

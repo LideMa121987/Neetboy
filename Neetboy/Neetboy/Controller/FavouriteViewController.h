@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface FavouriteViewController : BaseViewController
+@interface FavouriteViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 {
     __unsafe_unretained UIViewController        *_homeViewController;
+    
+    UITableView     *_tableView;
+    NSMutableArray  *_weiboArray;
 }
 
 @property (assign, nonatomic) UIViewController *homeViewController;
