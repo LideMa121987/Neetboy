@@ -12,6 +12,10 @@
 #import <ImageIO/ImageIO.h>
 
 @interface SDWebImageDownloaderOperation ()
+{
+    BOOL    _executing;
+    BOOL    _finished;
+}
 
 @property (copy, nonatomic) SDWebImageDownloaderProgressBlock progressBlock;
 @property (copy, nonatomic) SDWebImageDownloaderCompletedBlock completedBlock;
